@@ -63,7 +63,7 @@ class RoiDataLayer(caffe.Layer):
 
     self.cur = 0
     cv_img = cv2.imread(self.spindle_datas[self.cur].image_path)
-    assert cv_img != None
+    assert cv_img is not None
     
     print "output data size: " + str(self.batch_size) + "," + str(cv_img.shape[2]) + "," + str(self.new_height) + "," + str(self.new_width)
 
@@ -77,7 +77,7 @@ class RoiDataLayer(caffe.Layer):
     for i in xrange(self.batch_size):
       tmp = self.spindle_datas[self.cur]
       cv_img = cv2.imread(tmp.image_path)
-      assert cv_img != None
+      assert cv_img is not None
       assert cv_img.shape[0] > 1
       assert cv_img.shape[1] > 1
       assert cv_img.shape[2] == 3
