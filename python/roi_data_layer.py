@@ -2,6 +2,7 @@ import caffe
 import cv2
 import random
 import numpy as np
+import os.path as osp
 
 
 class RoiDataLayer(caffe.Layer):
@@ -22,6 +23,10 @@ class RoiDataLayer(caffe.Layer):
     self.mean_value = params['mean_value']
     self.region_num = params['region_num']
     self.region_scale = params['region_scale']
+
+    if osp.exists(self.source) == False:
+      print self.source + " is not exist."
+      exit(0)
 
     assert self.batch_size > 0
     assert self.new_height > 0 and self.new_width > 0
