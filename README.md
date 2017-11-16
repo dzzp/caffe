@@ -15,6 +15,42 @@ Check out the [project site](http://caffe.berkeleyvision.org) for all the detail
 
 and step-by-step examples.
 
+## Installation Guide
+
+### Build
+
+_config file: Makefile.config_
+
+```bash
+$ cp Makefile.config.example Makefile.config
+```
+
+```bash
+$ make all
+$ make test
+$ make pycaffe
+```
+
+### bashrc setting
+
+```bash
+$ vi ~/.bashrc
+```
+
+#### ~/.bashrc
+
+```
+...
+export PYTHONPATH={{{ caffe path }}}/python:$=PYTHONPATH
+...
+```
+
+> Ex) `export PYTHONPATH=$HOME/Downloads/caffe/python:$PYTHONPATH`
+
+```
+$ source ~/.bashrc
+```
+
 ## Custom distributions
 
  - [Intel Caffe](https://github.com/BVLC/caffe/tree/intel) (Optimized for CPU and support for multi-node), in particular Xeon processors (HSW, BDW, Xeon Phi).
